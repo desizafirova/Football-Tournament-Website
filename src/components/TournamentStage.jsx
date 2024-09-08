@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import useCSV from '../hooks/useCSV';
+import findTeamNameById from '../helpers/findTeamNameById';
 
 const StyledTournamentStage = styled.div`
   display: flex;
@@ -54,10 +55,6 @@ const MatchDate = styled.div`
 function TournamentStage({ matches, teams, tourStage }) {
   const { isLoading } = useCSV();
 
-  function findTeamNameById(id) {
-    return teams.find((team) => team.ID === id)?.Name;
-  }
-
   if (isLoading) return <p>Loading...</p>;
 
   return (
@@ -78,8 +75,8 @@ function TournamentStage({ matches, teams, tourStage }) {
             parseInt(scoreB) + parseInt(penaltyB || 0);
         }
 
-        const nameOfTeamA = findTeamNameById(match.ATeamID);
-        const nameOfTeamB = findTeamNameById(match.BTeamID);
+        const nameOfTeamA = findTeamNameById(teams, match.ATeamID);
+        const nameOfTeamB = findTeamNameById(teams, match.BTeamID);
 
         const isTeamAWinner =
           scoreOfTeamAWithPenalties > scoreOfTeamBWithPenalties;
