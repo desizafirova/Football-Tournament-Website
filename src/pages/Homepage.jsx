@@ -7,9 +7,12 @@ const StyledHomepage = styled.main`
 `;
 
 function Homepage() {
-  const matches = useCSV('../data/matches.csv');
-  const teams = useCSV('../data/teams.csv');
-  console.log(matches, teams);
+  const { isLoading: isLoadingMatches, CSVData: matches } =
+    useCSV('/data/matches.csv');
+  const { isLoading: isLoadingTeams, CSVData: teams } =
+    useCSV('/data/teams.csv');
+
+  if (isLoadingMatches || isLoadingTeams) return <p>Loading...</p>;
 
   return (
     <StyledHomepage>
