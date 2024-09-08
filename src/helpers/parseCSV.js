@@ -1,5 +1,5 @@
 function parseCSV(csvData) {
-  const rows = csvData.split('\n');
+  const rows = csvData.split('\r\n');
   const columnHeaders = rows[0].split(',');
 
   return rows.slice(1).map((row) => {
