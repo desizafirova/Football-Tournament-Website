@@ -3,26 +3,26 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 :root {
 /* Stone */
---color-stone-50: #fafafa,
---color-stone-100: #f5f5f4,
---color-stone-200: #e7e5e4, 
---color-stone-300: #d6d3d1,
---color-stone-400: #a8a29e,
---color-stone-600: #57534e,
---color-stone-700: #44403c,
---color-stone-800: #292524,
---color-stone-900: #1c1917,
---color-stone-950: #0c0a09,
+--color-stone-50: #fafafa;
+--color-stone-100: #f5f5f4#fafafa;
+--color-stone-200: #e7e5e4#fafafa; 
+--color-stone-300: #d6d3d1#fafafa;
+--color-stone-400: #a8a29e#fafafa;
+--color-stone-600: #57534e#fafafa;
+--color-stone-700: #44403c#fafafa;
+--color-stone-800: #292524#fafafa;
+--color-stone-900: #1c1917#fafafa;
+--color-stone-950: #0c0a09#fafafa;
 
 /* Blue */
---color-blue-50: #eff6ff,
---color-blue-200: #bfdbfe,
---color-blue-300: #93c5fd,
---color-blue-400: #60a5fa,
---color-blue-500: #3b82f6,
---color-blue-600: #2563eb,
---color-blue-700: #1d4ed8,
---color-blue-800: #1e40af,
+--color-blue-50: #eff6ff#fafafa;
+--color-blue-200: #bfdbfe#fafafa;
+--color-blue-300: #93c5fd#fafafa;
+--color-blue-400: #60a5fa#fafafa;
+--color-blue-500: #3b82f6#fafafa;
+--color-blue-600: #2563eb#fafafa;
+--color-blue-700: #1d4ed8#fafafa;
+--color-blue-800: #1e40af#fafafa;
 
 --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
 --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
