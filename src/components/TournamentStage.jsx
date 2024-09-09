@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import findTeamNameById from '../helpers/findTeamNameById';
+import { useContext } from 'react';
+import { GlobalContext } from '../GlobalContext';
 
 const StyledTournamentStage = styled.div`
   display: flex;
@@ -11,14 +13,13 @@ const StyledTournamentStage = styled.div`
 
 const Heading = styled.h2`
   position: absolute;
-  top: 0;
+  top: 12%;
   font-size: 2rem;
   color: var(--color-stone-400);
-  margin-bottom: 1rem;
 `;
 
 const MatchWrapper = styled.div`
-  margin-bottom: 3rem;
+  margin-top: 3rem;
 `;
 
 const Teams = styled.div`
@@ -51,11 +52,12 @@ const MatchDate = styled.div`
   font-size: 1rem;
 `;
 
-function TournamentStage({ matches, teams, tourStage }) {
+function TournamentStage({ matchesInStage, tourStage }) {
+  const { teams } = useContext(GlobalContext);
   return (
     <StyledTournamentStage>
       <Heading>{tourStage}</Heading>
-      {matches.map((match) => {
+      {matchesInStage.map((match) => {
         let [scoreOfTeamA, scoreOfTeamB] = match.Score.split('-');
         let scoreOfTeamAWithPenalties = parseInt(scoreOfTeamA);
         let scoreOfTeamBWithPenalties = parseInt(scoreOfTeamB);
@@ -98,7 +100,6 @@ function TournamentStage({ matches, teams, tourStage }) {
 export default TournamentStage;
 
 TournamentStage.propTypes = {
-  matches: PropTypes.arrayOf(PropTypes.object).isRequired,
-  teams: PropTypes.arrayOf(PropTypes.object).isRequired,
+  matchesInStage: PropTypes.arrayOf(PropTypes.object).isRequired,
   tourStage: PropTypes.string.isRequired,
 };
