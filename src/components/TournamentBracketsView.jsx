@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TournamentStage from './TournamentStage';
+import { useContext } from 'react';
+import { GlobalContext } from '../GlobalContext';
 
 const StyledTournamentBracketsView = styled.div`
   margin-top: 5rem;
@@ -8,7 +9,8 @@ const StyledTournamentBracketsView = styled.div`
   gap: 10rem;
 `;
 
-function TournamentBracketsView({ matches, teams }) {
+function TournamentBracketsView() {
+  const { matches } = useContext(GlobalContext);
   const stages = {
     roundOf16: matches.slice(36, 44),
     quarterFinals: matches.slice(44, 48),
@@ -19,28 +21,20 @@ function TournamentBracketsView({ matches, teams }) {
   return (
     <StyledTournamentBracketsView>
       <TournamentStage
-        matches={stages.roundOf16}
-        teams={teams}
+        matchesInStage={stages.roundOf16}
         tourStage="ROUND OF 16"
       />
       <TournamentStage
-        matches={stages.quarterFinals}
-        teams={teams}
+        matchesInStage={stages.quarterFinals}
         tourStage="QUARTER-FINALS"
       />
       <TournamentStage
-        matches={stages.semiFinals}
-        teams={teams}
+        matchesInStage={stages.semiFinals}
         tourStage="SEMI-FINALS"
       />
-      <TournamentStage matches={stages.final} teams={teams} tourStage="FINAL" />
+      <TournamentStage matchesInStage={stages.final} tourStage="FINAL" />
     </StyledTournamentBracketsView>
   );
 }
 
 export default TournamentBracketsView;
-
-TournamentBracketsView.propTypes = {
-  matches: PropTypes.arrayOf(PropTypes.object).isRequired,
-  teams: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
