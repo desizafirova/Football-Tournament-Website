@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const StyledLogo = styled.img`
-  height: 8rem;
+  height: 5.5rem;
+  margin: 1rem;
 `;
 
 function Logo() {
