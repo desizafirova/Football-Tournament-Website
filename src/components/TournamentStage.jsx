@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import findTeamNameById from '../helpers/findTeamNameById';
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
 const StyledTournamentStage = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const Heading = styled.h2`
 
 const MatchWrapper = styled.div`
   margin-top: 3rem;
+  cursor: pointer;
 `;
 
 const Teams = styled.div`
@@ -54,6 +56,12 @@ const MatchDate = styled.div`
 
 function TournamentStage({ matchesInStage, tourStage }) {
   const { teams } = useContext(GlobalContext);
+  const navigate = useNavigate();
+
+  function handleClick(matchId) {
+    navigate(`/match-details/${matchId}`);
+  }
+
   return (
     <StyledTournamentStage>
       <Heading>{tourStage}</Heading>
@@ -80,7 +88,7 @@ function TournamentStage({ matchesInStage, tourStage }) {
         const isTeamBWinner =
           scoreOfTeamBWithPenalties > scoreOfTeamAWithPenalties;
         return (
-          <MatchWrapper key={match.ID}>
+          <MatchWrapper key={match.ID} onClick={() => handleClick(match.ID)}>
             <Teams>
               <MatchDate>Date: {match.Date}</MatchDate>
               <Team className={isTeamAWinner ? 'winner' : 'loser'}>
