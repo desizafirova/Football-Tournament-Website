@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 import TournamentBracketsView from '../components/TournamentBracketsView';
-import useCSV from '../hooks/useCSV';
+import Winner from '../components/Winner';
+import { useContext } from 'react';
+import { GlobalContext } from '../GlobalContext';
 
 const StyledHomepage = styled.main`
   display: flex;
+  justify-content: space-around;
 `;
 
 function Homepage() {
-  const { isLoading: isLoadingMatches, CSVData: matches } =
-    useCSV('/data/matches.csv');
-  const { isLoading: isLoadingTeams, CSVData: teams } =
-    useCSV('/data/teams.csv');
+  const { isLoadingMatches, isLoadingTeams } = useContext(GlobalContext);
 
   if (isLoadingMatches || isLoadingTeams) return <p>Loading...</p>;
 
   return (
-    <StyledHomepage>
-      <TournamentBracketsView matches={matches} teams={teams} />
-    </StyledHomepage>
+    <>
+      <StyledHomepage>
+        <TournamentBracketsView />
+        <Winner />
+      </StyledHomepage>
+    </>
   );
 }
 
