@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import findTeamNameById from '../helpers/findTeamNameById';
+import { useContext } from 'react';
+import { GlobalContext } from '../GlobalContext';
 
 const StyledWinnerBox = styled.div`
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 50vh;
   transform: translateY(-50%);
   width: 35rem;
@@ -18,6 +19,7 @@ const TeamNameBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `;
 const TeamResultsBox = styled.div`
   font-size: 2rem;
@@ -26,7 +28,8 @@ const TeamResultsBox = styled.div`
   align-items: center;
 `;
 
-function Winner({ matches, teams }) {
+function Winner() {
+  const { matches, teams } = useContext(GlobalContext);
   const lastMatch = matches.slice(50, 51);
 
   let [scoreOfTeamA, scoreOfTeamB] = lastMatch[0].Score.split('-');
@@ -52,10 +55,5 @@ function Winner({ matches, teams }) {
     </StyledWinnerBox>
   );
 }
-
-Winner.propTypes = {
-  matches: PropTypes.arrayOf(PropTypes.object).isRequired,
-  teams: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default Winner;
