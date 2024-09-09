@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import useCSV from '../hooks/useCSV';
 import findTeamNameById from '../helpers/findTeamNameById';
 
 const StyledTournamentStage = styled.div`
@@ -53,10 +52,6 @@ const MatchDate = styled.div`
 `;
 
 function TournamentStage({ matches, teams, tourStage }) {
-  const { isLoading } = useCSV();
-
-  if (isLoading) return <p>Loading...</p>;
-
   return (
     <StyledTournamentStage>
       <Heading>{tourStage}</Heading>
