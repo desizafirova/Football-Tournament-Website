@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import findTeamNameById from '../helpers/findTeamNameById';
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
 const StyledWinnerBox = styled.div`
   display: grid;
@@ -12,6 +13,7 @@ const StyledWinnerBox = styled.div`
   height: 25rem;
   border-radius: var(--border-radius-lg);
   border: 2px solid var(--color-blue-400);
+  cursor: pointer;
 `;
 
 const TeamNameBox = styled.div`
@@ -29,8 +31,13 @@ const TeamResultsBox = styled.div`
 `;
 
 function Winner() {
+  const navigate = useNavigate();
   const { matches, teams } = useContext(GlobalContext);
   const lastMatch = matches.slice(50, 51);
+
+  function handleClick(matchId) {
+    navigate(`/match-details/${matchId}`);
+  }
 
   let [scoreOfTeamA, scoreOfTeamB] = lastMatch[0].Score.split('-');
   let scoreOfTeamAWithPenalties = parseInt(scoreOfTeamA);
@@ -46,7 +53,7 @@ function Winner() {
   const teamAName = findTeamNameById(teams, lastMatch[0].ATeamID);
   const teamBName = findTeamNameById(teams, lastMatch[0].BTeamID);
   return (
-    <StyledWinnerBox>
+    <StyledWinnerBox onClick={() => handleClick(lastMatch[0].ID)}>
       <TeamNameBox>{teamAName}</TeamNameBox>
       <TeamResultsBox>
         {scoreOfTeamAWithPenalties} - {scoreOfTeamBWithPenalties}
