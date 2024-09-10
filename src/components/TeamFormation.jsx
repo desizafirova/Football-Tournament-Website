@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { GlobalContext } from '../GlobalContext';
-import positionsOnTheField from './constants/positionsOnTheField';
+import positionsOnTheField from '../constants/positionsOnTheField';
 import Spinner from './Spinner';
 
 const TeamFormationsContainer = styled.div`
