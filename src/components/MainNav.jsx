@@ -28,7 +28,7 @@ function MainNav() {
     <StyledMainNav>
       <li>
         <StyledNavLink to="/team-details">
-          Learn more about the teams
+          &rarr; Click here to learn more about the teams
         </StyledNavLink>
       </li>
     </StyledMainNav>
