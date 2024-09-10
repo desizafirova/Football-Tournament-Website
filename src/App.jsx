@@ -1,10 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { GlobalContextProvider } from './GlobalContext';
 import GlobalStyles from './styles/GlobalStyles';
+
 import AppLayout from './components/AppLayout';
 import Homepage from './pages/Homepage';
 import MatchDetails from './pages/MatchDetails';
 import TeamDetails from './pages/TeamDetails';
-import { GlobalContextProvider } from './GlobalContext';
+import GroupStage from './pages/GroupStage';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
               <Route path="/homepage" element={<Homepage />} />
               <Route path="/match-details/:id" element={<MatchDetails />} />
               <Route path="team-details" element={<TeamDetails />} />
+              <Route path="/group-stage-matches" element={<GroupStage />} />
             </Route>
           </Routes>
         </BrowserRouter>
