@@ -66,7 +66,7 @@ function MatchStatistics() {
       <MatchStatsTable>
         <thead>
           <tr>
-            <th colSpan="3">{teamA.Name}</th>
+            <th colSpan="5">{teamA.Name}</th>
           </tr>
           <tr>
             <th>&#8470;</th>
