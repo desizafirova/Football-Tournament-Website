@@ -92,6 +92,12 @@ img {
   max-width: 100%;
 }
 
+th, td {
+  padding: 2.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-stone-200);
+  color: var(--color-stone-500)
+}
 
 `;
 
