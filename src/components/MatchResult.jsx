@@ -26,7 +26,6 @@ function MatchResult() {
   if (isLoadingMatches || isLoadingTeams) return <Spinner />;
 
   const currMatch = matches.find((match) => match.ID === matchId.id);
-  console.log(currMatch, teams);
   const teamA = teams.find((team) => currMatch.ATeamID === team.ID);
   const teamB = teams.find((team) => currMatch.BTeamID === team.ID);
 
