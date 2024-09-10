@@ -18,6 +18,8 @@ function TournamentBracketsView() {
     final: matches.slice(50, 51),
   };
 
+  console.log(stages.roundOf16, stages.quarterFinals);
+
   return (
     <StyledTournamentBracketsView>
       <TournamentStage
