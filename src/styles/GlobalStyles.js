@@ -96,7 +96,12 @@ th, td {
   padding: 2.2rem;
   text-align: left;
   border-bottom: 1px solid var(--color-stone-200);
-  color: var(--color-stone-500)
+  color: var(--color-stone-500);
+  font-size: 1.3rem
+}
+
+tr:hover {
+  background-color: var(--color-blue-300);
 }
 
 `;
