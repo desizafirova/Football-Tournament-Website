@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import TeamFormation from '../components/TeamFormation';
 import MatchResult from '../components/MatchResult';
+import MatchStatistics from '../components/MatchStatistics';
 
 const StyledMatchDetails = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ function MatchDetails() {
     <StyledMatchDetails>
       <MatchResult />
       <TeamFormation />
+      <MatchStatistics />
     </StyledMatchDetails>
   );
 }
