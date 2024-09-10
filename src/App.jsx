@@ -17,7 +17,7 @@ function App() {
               <Route index element={<Navigate replace to="/homepage" />} />
               <Route path="/homepage" element={<Homepage />} />
               <Route path="/match-details/:id" element={<MatchDetails />} />
-              <Route path="team-details/:id" element={<TeamDetails />} />
+              <Route path="team-details" element={<TeamDetails />} />
             </Route>
           </Routes>
         </BrowserRouter>
