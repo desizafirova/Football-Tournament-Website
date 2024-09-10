@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import TeamDetailsTable from '../components/TeamDetailsTable';
 import { GlobalContext } from '../GlobalContext';
+import ButtonBack from '../components/ButtonBack';
 
 function TeamDetails() {
   const isLoadingTeams = useContext(GlobalContext);
@@ -8,6 +9,7 @@ function TeamDetails() {
 
   return (
     <>
+      <ButtonBack />
       <TeamDetailsTable />
     </>
   );
