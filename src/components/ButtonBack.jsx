@@ -3,9 +3,20 @@ import styled from 'styled-components';
 
 const StyledButtonBack = styled.button`
   padding: 1rem 2rem;
-  background-color: var(--color-stone-500);
+  background-color: var(--color-stone-600);
   color: var(--color-stone-100);
   border: none;
+  margin: 1rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+
+  &:hover {
+    background-color: var(--color-stone-700);
+  }
+
+  &:active {
+    box-shadow: var(--shadow-sm);
+  }
 `;
 
 function ButtonBack() {
