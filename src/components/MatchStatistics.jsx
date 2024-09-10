@@ -15,6 +15,7 @@ const MatchStatsTable = styled.table`
   background-color: var(--color-blue-50);
   border: 2px solid var(--color-blue-200);
   border-radius: var(--border-radius-md);
+  border-collapse: collapse;
 `;
 
 function MatchStatistics() {
