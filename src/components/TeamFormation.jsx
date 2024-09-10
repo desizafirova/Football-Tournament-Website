@@ -41,7 +41,13 @@ function TeamFormation() {
   const { matches, players } = useContext(GlobalContext);
   const matchId = useParams();
 
+  if (!matches || !players) {
+    return <p>Loading...</p>;
+  }
+
   const currMatch = matches.find((match) => match.ID === matchId.id);
+
+  if (!currMatch) return <p>Loading...</p>;
 
   const idOfATeam = currMatch.ATeamID;
   const idOfBTeam = currMatch.BTeamID;
@@ -63,9 +69,8 @@ function TeamFormation() {
 
     return players.map((player) => {
       const position = positionsOnTheField[player.Position];
-      console.log(
-        `Position for ${player.FullName}: ${player.Position} ${player.TeamNumber}`
-      );
+
+      if (!position) return null;
 
       if (Array.isArray(position)) {
         let playerPosition;
