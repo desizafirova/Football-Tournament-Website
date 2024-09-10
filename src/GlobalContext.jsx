@@ -11,6 +11,8 @@ export function GlobalContextProvider({ children }) {
     useCSV('/data/teams.csv');
   const { isLoading: isLoadingPlayers, CSVData: players } =
     useCSV('/data/players.csv');
+  const { isLoading: isLoadingRecords, CSVData: records } =
+    useCSV('/data/records.csv');
 
   return (
     <GlobalContext.Provider
@@ -18,6 +20,8 @@ export function GlobalContextProvider({ children }) {
         matches,
         teams,
         players,
+        records,
+        isLoadingRecords,
         isLoadingMatches,
         isLoadingTeams,
         isLoadingPlayers,
