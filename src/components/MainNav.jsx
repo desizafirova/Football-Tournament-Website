@@ -27,6 +27,11 @@ function MainNav() {
   return (
     <StyledMainNav>
       <li>
+        <StyledNavLink to="/group-stage-matches">
+          &rarr; Group Stage
+        </StyledNavLink>
+      </li>
+      <li>
         <StyledNavLink to="/team-details">
           &rarr; Click here to learn more about the teams
         </StyledNavLink>
