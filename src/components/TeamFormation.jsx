@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { GlobalContext } from '../GlobalContext';
 import positionsOnTheField from './constants/positionsOnTheField';
+import Spinner from './Spinner';
 
 const TeamFormationsContainer = styled.div`
   display: flex;
@@ -38,16 +39,13 @@ const PlayerNumber = styled.div`
   z-index: 1000;
 `;
 function TeamFormation() {
-  const { matches, players } = useContext(GlobalContext);
+  const { matches, isLoadingMatches, players, isLoadingPlayers } =
+    useContext(GlobalContext);
   const matchId = useParams();
 
-  if (!matches || !players) {
-    return <p>Loading...</p>;
-  }
+  if (isLoadingMatches || isLoadingPlayers) return <Spinner />;
 
   const currMatch = matches.find((match) => match.ID === matchId.id);
-
-  if (!currMatch) return <p>Loading...</p>;
 
   const idOfATeam = currMatch.ATeamID;
   const idOfBTeam = currMatch.BTeamID;
@@ -65,12 +63,8 @@ function TeamFormation() {
       FW: 0,
     };
 
-    console.log('Positions:', positionsOnTheField);
-
     return players.map((player) => {
       const position = positionsOnTheField[player.Position];
-
-      if (!position) return null;
 
       if (Array.isArray(position)) {
         let playerPosition;
