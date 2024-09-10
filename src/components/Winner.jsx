@@ -14,6 +14,7 @@ const StyledWinnerBox = styled.div`
   border-radius: var(--border-radius-lg);
   border: 2px solid var(--color-blue-400);
   cursor: pointer;
+  background-color: var(--color-blue-50);
 `;
 
 const TeamNameBox = styled.div`
