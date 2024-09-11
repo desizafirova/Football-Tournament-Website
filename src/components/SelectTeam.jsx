@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+
 import { GlobalContext } from '../GlobalContext';
 import Spinner from './Spinner';
 import TeamDetailsTable from './TeamDetailsTable';

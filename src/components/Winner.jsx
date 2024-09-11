@@ -7,11 +7,19 @@ import findTeamNameById from '../helpers/findTeamNameById';
 import filterMatchesByDates from '../helpers/filterMatchesByDate';
 import scoreCalculator from '../helpers/scoreCalculator';
 
+const FlexWrapper = styled.div`
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: conter;
+  align-items: center;
+  gap: 2rem;
+`;
+
 const StyledWinnerBox = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 50vh;
-  transform: translateY(-50%);
   width: 35rem;
   height: 25rem;
   border-radius: var(--border-radius-lg);
@@ -28,10 +36,16 @@ const TeamNameBox = styled.div`
   padding: 1rem;
 `;
 const TeamResultsBox = styled.div`
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Heading = styled.h2`
+  font-size: 5rem;
+  color: var(--color-stone-400);
 `;
 
 function Winner() {
@@ -50,13 +64,16 @@ function Winner() {
   const teamAName = findTeamNameById(teams, lastMatch[0].ATeamID);
   const teamBName = findTeamNameById(teams, lastMatch[0].BTeamID);
   return (
-    <StyledWinnerBox onClick={() => handleClick(lastMatch[0].ID)}>
-      <TeamNameBox>{teamAName}</TeamNameBox>
-      <TeamResultsBox>
-        {scoreOfTeamAWithPenalties} - {scoreOfTeamBWithPenalties}
-      </TeamResultsBox>
-      <TeamNameBox>{teamBName}</TeamNameBox>
-    </StyledWinnerBox>
+    <FlexWrapper>
+      <Heading> Final 🏆</Heading>
+      <StyledWinnerBox onClick={() => handleClick(lastMatch[0].ID)}>
+        <TeamNameBox>{teamAName}</TeamNameBox>
+        <TeamResultsBox>
+          {scoreOfTeamAWithPenalties} - {scoreOfTeamBWithPenalties}
+        </TeamResultsBox>
+        <TeamNameBox>{teamBName}</TeamNameBox>
+      </StyledWinnerBox>
+    </FlexWrapper>
   );
 }
 

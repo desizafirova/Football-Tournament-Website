@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import filterMatchesByDates from '../helpers/filterMatchesByDate';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
+
+import filterMatchesByDates from '../helpers/filterMatchesByDate';
 import Spinner from './Spinner';
 import findTeamNameById from '../helpers/findTeamNameById';
 import TableRow from './TableRow';

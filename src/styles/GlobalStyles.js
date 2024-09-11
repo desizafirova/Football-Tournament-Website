@@ -104,6 +104,25 @@ tr:hover {
   background-color: var(--color-blue-300);
 }
 
+@media (max-width: 56em) {
+  html {
+    font-size: 56%;
+  }
+}
+
+@media (max-width: 32em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 28em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
+
+
 `;
 
 export default GlobalStyles;

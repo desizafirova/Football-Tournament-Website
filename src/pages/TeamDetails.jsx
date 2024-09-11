@@ -1,4 +1,3 @@
-// import TeamDetailsTable from '../components/TeamDetailsTable';
 import ButtonBack from '../components/ButtonBack';
 import SelectTeam from '../components/SelectTeam';
 

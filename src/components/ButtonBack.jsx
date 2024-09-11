@@ -18,6 +18,10 @@ const StyledButtonBack = styled.button`
   &:active {
     box-shadow: var(--shadow-sm);
   }
+
+  @media (max-width: 27em) {
+    font-size: 1.25rem;
+  }
 `;
 
 function ButtonBack({ children }) {

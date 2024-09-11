@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import { useParams } from 'react-router-dom';
+
 import styled from 'styled-components';
 import Spinner from './Spinner';
 
@@ -9,6 +10,15 @@ const StyledMatchStatisticsBox = styled.div`
   justify-content: space-around;
   gap: 3rem;
   margin: 10rem;
+
+  @media (max-width: 72em) {
+    margin: 3rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 24em) {
+    margin: 1rem;
+  }
 `;
 
 const MatchStatsTable = styled.table`
@@ -16,6 +26,14 @@ const MatchStatsTable = styled.table`
   border: 2px solid var(--color-blue-200);
   border-radius: var(--border-radius-md);
   border-collapse: collapse;
+
+  @media (max-width: 24em) {
+    th,
+    tr {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  }
 `;
 
 function MatchStatistics() {

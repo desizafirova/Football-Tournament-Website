@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
-import { useNavigate } from 'react-router-dom';
 
 import scoreCalculator from '../helpers/scoreCalculator';
 import findTeamNameById from '../helpers/findTeamNameById';
@@ -18,7 +18,22 @@ const Heading = styled.h2`
   position: absolute;
   top: 12%;
   font-size: 2rem;
+  word-wrap: break-word;
   color: var(--color-stone-400);
+
+  @media (max-width: 81em) {
+    top: 100%;
+  }
+
+  @media (max-width: 49em) {
+    top: 97%;
+  }
+  @media (max-width: 42em) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 28em) {
+    top: 90%;
+  }
 `;
 
 const MatchWrapper = styled.div`
@@ -48,6 +63,11 @@ const Team = styled.div`
   &.winner {
     color: var(--color-blue-500);
     border-color: var(--color-blue-500);
+  }
+
+  @media (max-width: 42em) {
+    width: 12rem;
+    height: 2.5rem;
   }
 `;
 

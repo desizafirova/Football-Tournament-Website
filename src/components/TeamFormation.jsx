@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { GlobalContext } from '../GlobalContext';
 import positionsOnTheField from '../constants/positionsOnTheField';
 import Spinner from './Spinner';
@@ -17,6 +18,27 @@ const FormationContainer = styled.div`
   height: 70rem;
   width: 50rem;
   position: relative;
+
+  @media (max-width: 63em) {
+    height: 55rem;
+    width: 40rem;
+  }
+  @media (max-width: 47em) {
+    height: 45rem;
+    width: 33rem;
+  }
+  @media (max-width: 38em) {
+    height: 40rem;
+    width: 30rem;
+  }
+  @media (max-width: 34em) {
+    height: 35rem;
+    width: 26rem;
+  }
+  @media (max-width: 24em) {
+    height: 28rem;
+    width: 21rem;
+  }
 `;
 
 const PositionMarker = styled.div`
@@ -31,6 +53,11 @@ const PositionMarker = styled.div`
   font-size: 1rem;
   text-align: center;
   color: var(--color-stone-600);
+
+  @media (max-width: 24em) {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
 `;
 
 const PlayerNumber = styled.div`

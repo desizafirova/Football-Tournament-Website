@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useContext } from 'react';
+
 import { GlobalContext } from '../GlobalContext';
 import TournamentStage from './TournamentStage';
 import filterMatchesByDates from '../helpers/filterMatchesByDate';
@@ -11,6 +12,14 @@ const StyledTournamentBracketsView = styled.div`
   margin-bottom: 5rem;
   display: flex;
   gap: 10rem;
+
+  @media (max-width: 49em) {
+    gap: 5rem;
+  }
+
+  @media (max-width: 42em) {
+    gap: 2rem;
+  }
 `;
 
 function TournamentBracketsView() {

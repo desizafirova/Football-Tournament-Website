@@ -8,6 +8,10 @@ const FilterFlexContainer = styled.div`
   align-items: center;
   gap: 3rem;
   margin-right: 2rem;
+
+  @media (max-width: 27em) {
+    font-size: 1.25rem;
+  }
 `;
 
 const FilterBox = styled.div`

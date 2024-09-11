@@ -26,6 +26,11 @@ const Box = styled.div`
     margin-bottom: 2rem;
     text-align: center;
   }
+
+  @media (max-width: 40em) {
+    width: 60%;
+    height: 20%;
+  }
 `;
 
 function PageNotFound() {

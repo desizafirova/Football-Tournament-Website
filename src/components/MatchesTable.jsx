@@ -24,6 +24,10 @@ const Textbox = styled.p`
   text-align: right;
   font-style: italic;
   color: var(--color-stone-400);
+
+  @media (max-width: 27em) {
+    font-size: 1.25rem;
+  }
 `;
 
 function MatchesTable() {

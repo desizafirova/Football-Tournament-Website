@@ -4,6 +4,9 @@ import styled from 'styled-components';
 const StyledMainNav = styled.ul`
   display: flex;
   align-items: center;
+  @media (max-width: 27em) {
+    font-size: 1.3rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`

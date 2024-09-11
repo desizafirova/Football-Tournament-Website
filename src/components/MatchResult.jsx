@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 import { GlobalContext } from '../GlobalContext';
 import { useParams } from 'react-router-dom';
+
 import Spinner from './Spinner';
 
 const StyledMatchResult = styled.div`
@@ -13,10 +14,18 @@ const StyledMatchResult = styled.div`
   margin: 3rem;
   gap: 4rem;
   border-bottom: 1px solid var(--color-stone-300);
+
+  @media (max-width: 39em) {
+    font-size: 1.6rem;
+  }
 `;
 
 const TeamName = styled.span`
   font-size: 3.6rem;
+
+  @media (max-width: 39em) {
+    font-size: 1.6rem;
+  }
 `;
 
 function MatchResult() {
