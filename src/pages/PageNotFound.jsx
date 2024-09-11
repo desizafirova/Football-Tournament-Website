@@ -7,14 +7,19 @@ const StyledPageNotFound = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem;
 `;
 
 const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
   background-color: #fff;
   border-radius: var(--border-radius-md);
   border: 2px solid var(--color-stone-300);
-  padding: 5rem;
+  width: 35%;
+  height: 30%;
 
   & p {
     font-size: 2rem;
