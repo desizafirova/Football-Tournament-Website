@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import findTeamNameById from '../helpers/findTeamNameById';
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import { useNavigate } from 'react-router-dom';
+
+import findTeamNameById from '../helpers/findTeamNameById';
+import filterMatchesByDates from '../helpers/filterMatchesByDate';
 
 const StyledWinnerBox = styled.div`
   display: grid;
@@ -34,7 +36,7 @@ const TeamResultsBox = styled.div`
 function Winner() {
   const navigate = useNavigate();
   const { matches, teams } = useContext(GlobalContext);
-  const lastMatch = matches.slice(50, 51);
+  const lastMatch = filterMatchesByDates('7/14/2024', '7/14/2024', matches);
 
   function handleClick(matchId) {
     navigate(`/match-details/${matchId}`);
