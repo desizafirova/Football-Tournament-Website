@@ -8,6 +8,7 @@ import findMatchInStage from '../helpers/findMatchInStage';
 
 const StyledTournamentBracketsView = styled.div`
   margin-top: 5rem;
+  margin-bottom: 5rem;
   display: flex;
   gap: 10rem;
 `;
