@@ -5,16 +5,13 @@ import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import Spinner from './Spinner';
 import findTeamNameById from '../helpers/findTeamNameById';
+import TableRow from './TableRow';
 
 const StyledGroupStageTable = styled.table`
   border-collapse: collapse;
   background-color: var(--color-blue-50);
   border: 1px solid var(--color-blue-200);
   margin: 7rem auto;
-`;
-
-const TableRow = styled.tr`
-  cursor: pointer;
 `;
 
 function GroupStageTable() {
@@ -45,14 +42,12 @@ function GroupStageTable() {
       </thead>
       <tbody>
         {groupStage.map((match) => {
-          const nameOfTeamA = findTeamNameById(teams, match.ATeamID);
-          const nameOfTeamB = findTeamNameById(teams, match.BTeamID);
           return (
             <TableRow key={match.ID} onClick={() => handleClick(match.ID)}>
               <td>{match.Date}</td>
-              <td>{nameOfTeamA}</td>
+              <td>{findTeamNameById(teams, match.ATeamID)}</td>
               <td>{match.Score}</td>
-              <td>{nameOfTeamB}</td>
+              <td>{findTeamNameById(teams, match.BTeamID)}</td>
             </TableRow>
           );
         })}
