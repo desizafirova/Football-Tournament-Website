@@ -27,14 +27,15 @@ function MainNav() {
   return (
     <StyledMainNav>
       <li>
-        <StyledNavLink to="/group-stage-matches">
+        <StyledNavLink to="all-matches">&rarr; All Matches</StyledNavLink>
+      </li>
+      <li>
+        <StyledNavLink to="group-stage-matches">
           &rarr; Group Stage
         </StyledNavLink>
       </li>
       <li>
-        <StyledNavLink to="/team-details">
-          &rarr; Click here to learn more about the teams
-        </StyledNavLink>
+        <StyledNavLink to="team-details">&rarr; Teams</StyledNavLink>
       </li>
     </StyledMainNav>
   );
