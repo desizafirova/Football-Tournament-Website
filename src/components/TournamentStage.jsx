@@ -67,17 +67,17 @@ function TournamentStage({ matchesInStage, tourStage }) {
       <Heading>{tourStage}</Heading>
       {matchesInStage.map((match) => {
         let [scoreOfTeamA, scoreOfTeamB] = match.Score.split('-');
-        let scoreOfTeamAWithPenalties = parseInt(scoreOfTeamA);
-        let scoreOfTeamBWithPenalties = parseInt(scoreOfTeamB);
+        let scoreOfTeamAWithPenalties = parseInt(scoreOfTeamA, 10);
+        let scoreOfTeamBWithPenalties = parseInt(scoreOfTeamB, 10);
 
         if (scoreOfTeamA.includes('(') || scoreOfTeamB.includes('(')) {
           const [scoreA, penaltyA] = scoreOfTeamA.split('(');
           scoreOfTeamAWithPenalties =
-            parseInt(scoreA) + parseInt(penaltyA || 0);
+            parseInt(scoreA, 10) + parseInt(penaltyA, 10 || '0', 10);
 
           const [scoreB, penaltyB] = scoreOfTeamB.split('(');
           scoreOfTeamBWithPenalties =
-            parseInt(scoreB) + parseInt(penaltyB || 0);
+            parseInt(scoreB, 10) + parseInt(penaltyB, 10 || '0', 10);
         }
 
         const nameOfTeamA = findTeamNameById(teams, match.ATeamID);
