@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
+
 import TeamFormation from '../components/TeamFormation';
 import MatchResult from '../components/MatchResult';
 import MatchStatistics from '../components/MatchStatistics';
 import ButtonBack from '../components/ButtonBack';
-import { useEffect } from 'react';
 
 const StyledMatchDetails = styled.div`
   display: flex;
