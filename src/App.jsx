@@ -8,6 +8,7 @@ import MatchDetails from './pages/MatchDetails';
 import TeamDetails from './pages/TeamDetails';
 import GroupStage from './pages/GroupStage';
 import AllMatches from './pages/AllMatches';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="/group-stage-matches" element={<GroupStage />} />
               <Route path="/all-matches" element={<AllMatches />} />
             </Route>
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </GlobalContextProvider>
