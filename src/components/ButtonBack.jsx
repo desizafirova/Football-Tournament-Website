@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledButtonBack = styled.button`
   padding: 1rem 2rem;
@@ -19,7 +20,7 @@ const StyledButtonBack = styled.button`
   }
 `;
 
-function ButtonBack() {
+function ButtonBack({ children }) {
   const navigate = useNavigate();
   return (
     <StyledButtonBack
@@ -29,9 +30,13 @@ function ButtonBack() {
         navigate(-1);
       }}
     >
-      &larr; Back
+      {children}
     </StyledButtonBack>
   );
 }
 
 export default ButtonBack;
+
+ButtonBack.propTypes = {
+  children: PropTypes.node.isRequired,
+};
