@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import findTeamNameById from '../helpers/findTeamNameById';
 import filterMatchesByDates from '../helpers/filterMatchesByDate';
+import scoreCalculator from '../helpers/scoreCalculator';
 
 const StyledWinnerBox = styled.div`
   display: grid;
@@ -43,18 +44,9 @@ function Winner() {
   }
 
   let [scoreOfTeamA, scoreOfTeamB] = lastMatch[0].Score.split('-');
-  let scoreOfTeamAWithPenalties = parseInt(scoreOfTeamA, 10);
-  let scoreOfTeamBWithPenalties = parseInt(scoreOfTeamB, 10);
+  let scoreOfTeamAWithPenalties = scoreCalculator(scoreOfTeamA);
+  let scoreOfTeamBWithPenalties = scoreCalculator(scoreOfTeamB);
 
-  if (scoreOfTeamA.includes('(') || scoreOfTeamB.includes('(')) {
-    const [scoreA, penaltyA] = scoreOfTeamA.split('(');
-    scoreOfTeamAWithPenalties =
-      parseInt(scoreA, 10) + parseInt(penaltyA, 10 || '0', 10);
-
-    const [scoreB, penaltyB] = scoreOfTeamB.split('(');
-    scoreOfTeamBWithPenalties =
-      parseInt(scoreB, 10) + parseInt(penaltyB, 10 || '0', 10);
-  }
   const teamAName = findTeamNameById(teams, lastMatch[0].ATeamID);
   const teamBName = findTeamNameById(teams, lastMatch[0].BTeamID);
   return (
