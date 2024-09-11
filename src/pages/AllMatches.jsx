@@ -1,5 +1,11 @@
+import ButtonBack from '../components/ButtonBack';
+
 function AllMatches() {
-  return <div></div>;
+  return (
+    <div>
+      <ButtonBack>&larr; Back</ButtonBack>
+    </div>
+  );
 }
 
 export default AllMatches;

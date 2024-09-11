@@ -5,7 +5,7 @@ import SelectTeam from '../components/SelectTeam';
 function TeamDetails() {
   return (
     <>
-      <ButtonBack />
+      <ButtonBack>&larr; Back</ButtonBack>
       <SelectTeam />
     </>
   );

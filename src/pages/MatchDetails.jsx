@@ -12,7 +12,7 @@ const StyledMatchDetails = styled.div`
 function MatchDetails() {
   return (
     <>
-      <ButtonBack />
+      <ButtonBack>&larr; Back</ButtonBack>
       <StyledMatchDetails>
         <MatchResult />
         <TeamFormation />
