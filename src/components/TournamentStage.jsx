@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import findTeamNameById from '../helpers/findTeamNameById';
 import { useContext } from 'react';
 import { GlobalContext } from '../GlobalContext';
 import { useNavigate } from 'react-router-dom';
+
+import scoreCalculator from '../helpers/scoreCalculator';
+import findTeamNameById from '../helpers/findTeamNameById';
 
 const StyledTournamentStage = styled.div`
   display: flex;
@@ -66,19 +68,9 @@ function TournamentStage({ matchesInStage, tourStage }) {
     <StyledTournamentStage>
       <Heading>{tourStage}</Heading>
       {matchesInStage.map((match) => {
-        let [scoreOfTeamA, scoreOfTeamB] = match.Score.split('-');
-        let scoreOfTeamAWithPenalties = parseInt(scoreOfTeamA, 10);
-        let scoreOfTeamBWithPenalties = parseInt(scoreOfTeamB, 10);
-
-        if (scoreOfTeamA.includes('(') || scoreOfTeamB.includes('(')) {
-          const [scoreA, penaltyA] = scoreOfTeamA.split('(');
-          scoreOfTeamAWithPenalties =
-            parseInt(scoreA, 10) + parseInt(penaltyA, 10 || '0', 10);
-
-          const [scoreB, penaltyB] = scoreOfTeamB.split('(');
-          scoreOfTeamBWithPenalties =
-            parseInt(scoreB, 10) + parseInt(penaltyB, 10 || '0', 10);
-        }
+        const [scoreOfTeamA, scoreOfTeamB] = match.Score.split('-');
+        const scoreOfTeamAWithPenalties = scoreCalculator(scoreOfTeamA);
+        const scoreOfTeamBWithPenalties = scoreCalculator(scoreOfTeamB);
 
         const nameOfTeamA = findTeamNameById(teams, match.ATeamID);
         const nameOfTeamB = findTeamNameById(teams, match.BTeamID);
