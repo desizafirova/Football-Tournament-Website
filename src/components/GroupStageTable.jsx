@@ -21,7 +21,6 @@ function GroupStageTable() {
 
   if (isLoadingMatches || isLoadingTeams) return <Spinner />;
   const groupStage = filterMatchesByDates('6/14/2024', '6/26/2024', matches);
-  console.log(groupStage);
 
   function handleClick(matchId) {
     navigate(`/match-details/${matchId}`);
