@@ -43,3 +43,31 @@ The application is developed using React and styled-components for styling. The 
 6. Teams:
 
 - When users click on the "Teams" NavLink in the navigation bar, they are redirected to the Teams page. On this page, users are presented with a dropdown (Select element) containing a list of all the teams participating in the tournament. Once a team is selected, a table appears on the UI showing the roster of players for the chosen team. The table includes essential information for each player: Team number, Full Name, and position on the field.
+
+## Installation and Setup
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/desizafirova/Football-Tournament-Website
+
+   ```
+
+2. **Navigate to the Project Directory**:
+
+   ```bash
+   cd Football-Tournament-Website
+
+   ```
+
+3. **Install Dependencies**:
+
+   ```bash
+   npm install
+
+   ```
+
+4. **Run the Application**:
+   ```bash
+   npm run dev
+   ```
